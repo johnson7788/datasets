@@ -32,18 +32,21 @@
 
 🔎 **Online dataset explorer**: https://huggingface.co/datasets/viewer
 
-`🤗Datasets` is a lightweight and extensible library to easily share and access datasets and evaluation metrics for Natural Language Processing (NLP) and more.
+🤗Datasets是一个轻量级且可扩展的库，可轻松共享和访问用于自然语言处理(NLP)等的数据集和评估指标。
 
-`🤗Datasets` has many interesting features (beside easy sharing and accessing datasets/metrics):
+🤗Datasets具有许多有趣的特征(除了易于共享和 访问数据集/指标)：
 
-- Built-in interoperability with NumPy, pandas, PyTorch and Tensorflow 2
-- Lightweight and fast with a transparent and pythonic API
-- Strive on large datasets: `🤗Datasets` naturally frees the user from RAM memory limitation, all datasets are memory-mapped on drive by default.
-- Smart caching: never wait for your data to process several times
+-与NumPy，Pandas，PyTorch和Tensorflow 2的内置互操作性
+-轻巧且快速的透明和Pythonic API 
+-力求大 数据集：“🤗Datasets”自然使用户摆脱了RAM内存限制，默认情况下所有数据集都映射到驱动器上。
+-智能缓存：从不等待数据处理几次
 
-`🤗Datasets` currently provides access to ~100 NLP datasets and ~10 evaluation metrics and is designed to let the community easily add and share new datasets and evaluation metrics. You can browse the full set of datasets with the [live datasets viewer](https://huggingface.co/datasets/viewer).
+🤗Datasets当前可访问约100个NLP数据集和约10个评估指标，旨在让社区轻松添加和共享新的数据集和评估指标。
+ 您可以使用来浏览完整的数据集  [live datasets viewer](https://huggingface.co/datasets/viewer).
 
-`🤗Datasets` originated from a fork of the awesome [`TensorFlow Datasets`](https://github.com/tensorflow/datasets) and the HuggingFace team want to deeply thank the TensorFlow Datasets team for building this amazing library. More details on the differences between `datasets` and `tfds` can be found in the section [Main differences between `🤗Datasets` and `tfds`](#main-differences-between-🤗Datasets-and-tfds).
+“🤗Datasets”源自令人敬畏的[`TensorFlow Datasets`](https://github.com/tensorflow/datasets)的分支，
+而HuggingFace团队要深深感谢TensorFlow Datasets团队构建了这个惊人的库。 
+关于[datasets]与`tfds`之间差异的更多详细信息，请参见[[[Datasets`与'tfds`之间的主要差异](#main-differences-between-🤗Datasetsand tfds)。** ** 
 
 # Contributors
 
@@ -51,50 +54,50 @@
 
 # Installation
 
-`🤗Datasets` can be installed from PyPi and has to be installed in a virtual environment (venv or conda for instance)
+🤗Datasets可以从PyPi安装，必须安装在虚拟环境中(例如，venv或conda)
 
 ```bash
 pip install datasets
 ```
 
-For more details on installation, check the installation page in the documentation: https://huggingface.co/docs/datasets/installation.html
+有关安装的更多详细信息，请查看文档中的安装页面。 : https://huggingface.co/docs/datasets/installation.html
 
 ## Using with PyTorch/TensorFlow/pandas
 
-If you plan to use `🤗Datasets` with PyTorch (1.0+), TensorFlow (2.2+) or pandas, you should also install PyTorch, TensorFlow or pandas.
+如果您打算在PyTorch(1.0 +)，TensorFlow(2.2+)或pandas中使用`🤗Datasets`，则还应该安装PyTorch，TensorFlow或pandas。
 
-For more details on using the library with NumPy, pandas, PyTorch or TensorFlow, check the quick tour page in the documentation: https://huggingface.co/docs/datasets/quicktour.html
+有关将库与NumPy，pandas，PyTorch或TensorFlow一起使用的更多详细信息，请查看文档中的快速浏览页面：https://huggingface.co/docs/datasets/quicktour.html
 
 # Usage
 
-`🤗Datasets` is made to be very simple to use. The main methods are:
+🤗Datasets的使用非常简单。 主要方法是：
 
-- `datasets.list_datasets()` to list the available datasets
-- `datasets.load_dataset(dataset_name, **kwargs)` to instantiate a dataset
-- `datasets.list_metrics()` to list the available metrics
-- `datasets.load_metric(metric_name, **kwargs)` to instantiate a metric
+- `datasets.list_datasets()` 列出可用的数据集 
+- `datasets.load_dataset(dataset_name, **kwargs)` 实例化数据集 
+- `datasets.list_metrics()` 列出可用指标 
+- `datasets.load_metric(metric_name, **kwargs)` 实例化指标 
 
-Here is a quick example:
+这是一个简单的样本： 
 
 ```python
 from datasets import list_datasets, load_dataset, list_metrics, load_metric
 
-# Print all the available datasets
+#打印所有可用的数据集 
 print(list_datasets())
 
-# Load a dataset and print the first examples in the training set
+#加载数据集并打印训练集中的第一个样本 
 squad_dataset = load_dataset('squad')
 print(squad_dataset['train'][0])
 
-# List all the available metrics
+#列出所有可用指标 
 print(list_metrics())
 
-# Load a metric
+#加载指标 
 squad_metric = load_metric('squad')
 ```
 
-For more details on using the library, check the quick tour page in the documentation: https://huggingface.co/docs/datasets/quicktour.html and the specific pages on
-
+有关使用库的更多详细信息，请查看文档中的快速浏览页面。: https://huggingface.co/docs/datasets/quicktour.html 
+and the specific pages on
 - Loading a dataset https://huggingface.co/docs/datasets/loading_datasets.html
 - What's in a Dataset: https://huggingface.co/docs/datasets/exploring.html
 - Processing data with `🤗Datasets`: https://huggingface.co/docs/datasets/processing.html
